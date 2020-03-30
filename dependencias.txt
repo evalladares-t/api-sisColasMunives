@@ -1,0 +1,6 @@
+awilix express dotenv cors compression automapper-js
+
+sequelize db:migrate --url "mariaDB://root:@localhost:3306/siscolasmunives"
+
+
+sequelize model:create --name Action --attributes name:string,owner:integer
