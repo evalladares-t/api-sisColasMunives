@@ -6,8 +6,8 @@ class BaseBusiness {
         this.entityToMap = entityToMap;
     }
 
-    async index() {
-        const entities = await this._entityRepository.index();
+    async index(offset,limit) {
+        const entities = await this._entityRepository.index(offset,limit);
         return entities.map(entity => mapper(this.entityToMap, entity.toJSON()));
     }
 

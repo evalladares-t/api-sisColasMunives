@@ -4,3 +4,8 @@ sequelize db:migrate --url "mariaDB://root:@localhost:3306/siscolasmunives"
 
 
 sequelize model:create --name Action --attributes name:string,owner:integer
+sequelize model:create --name Profile --attributes name:string
+sequelize model:create --name Permission --attributes name:string,state:boolean,profileId:integer,actionId:Integer
+sequelize model:create --name User --attributes name:string,lastname:string,dni:string,username:string,password:string,imageurl:string,state:boolean,profileId:integer
+sequelize model:create --name Multimedia --attributes name:string,url:string,userId:integer
+//sequelize model:create --name Time-management --attributes data:data,inicio:data,fin:date,userId:integer

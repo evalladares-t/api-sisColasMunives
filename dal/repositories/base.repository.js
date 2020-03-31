@@ -4,8 +4,12 @@ class BaseRepository {
         this.entity = entity;
     }
 
-    index() {
-        return this._db[this.entity].findAll();
+    index(offset,limit) {
+        const inicio = parseInt(offset);
+        const limite = parseInt(limit);
+        return this._db[this.entity].findAll({
+            offset:inicio,limit:limite})
+
     }
 
     show(id) {

@@ -7,12 +7,11 @@ class UserController {
     }
 
     async index(req,res){
-        const offset = req.query.offset;
-        const limit = req.query.limit;
-        let actions = await this._actionService.index(offset,limit);
+        let actions = await this._actionService.index();
         actions = actions.map(action=> mapper(ActionDto,action));
         return res.json({
-            'data' : actions,
+            'count':actions.length,
+            'data' : actions
         })
     }
 

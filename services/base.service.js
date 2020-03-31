@@ -4,8 +4,8 @@ class BaseService {
         this._entityBusiness = EntityBusiness;
     }
 
-    async index() {
-        const entities = await this._entityBusiness.index();
+    async index(offset,limit) {
+        const entities = await this._entityBusiness.index(offset,limit);
         return entities;
     }
 

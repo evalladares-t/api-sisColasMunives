@@ -5,7 +5,10 @@ module.exports = (sequelize, DataTypes) => {
     owner: DataTypes.INTEGER
   }, {});
   Action.associate = function(models) {
-    // associations can be defined here
+    Action.hasMany(models.Permission,{
+      foreignKey: 'actionId',
+      as:'Permission'
+    })
   };
   return Action;
 };
