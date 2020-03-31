@@ -7,8 +7,12 @@ class BaseBusiness {
     }
 
     async index(offset,limit) {
-        const entities = await this._entityRepository.index(offset,limit);
-        return entities.map(entity => mapper(this.entityToMap, entity.toJSON()));
+        const result= await await (this._entityRepository.index(offset,limit));
+        const entities = result.rows;
+        const count = result.count;
+        console.log(count);
+        const rows = entities.map(entity => mapper(this.entityToMap, entity.toJSON()));
+        return {rows,count};
     }
 
     async show(id) {

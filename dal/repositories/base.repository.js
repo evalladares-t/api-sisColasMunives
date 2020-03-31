@@ -7,9 +7,8 @@ class BaseRepository {
     index(offset,limit) {
         const inicio = parseInt(offset);
         const limite = parseInt(limit);
-        return this._db[this.entity].findAll({
-            offset:inicio,limit:limite})
-
+        return this._db[this.entity].findAndCountAll({
+            offset:inicio,limit:limite});
     }
 
     show(id) {

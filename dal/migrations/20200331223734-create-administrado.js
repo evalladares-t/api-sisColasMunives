@@ -1,24 +1,30 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Multimedia', {
+    return queryInterface.createTable('Administrados', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      nombre: {
         type: Sequelize.STRING
       },
-      url: {
+      apellidos: {
         type: Sequelize.STRING
       },
-      userId: {
+      dni: {
+        type: Sequelize.STRING
+      },
+      cod_rentas: {
+        type: Sequelize.STRING
+      },
+      tipo_administradoId: {
         type: Sequelize.INTEGER,
         onDelete:'CASCADE',
         references:{
-          model: 'Users',
+          model: 'Tipo_administrados',
           key:'id'
         }
       },
@@ -33,6 +39,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Multimedia');
+    return queryInterface.dropTable('Administrados');
   }
 };

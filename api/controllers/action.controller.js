@@ -9,9 +9,13 @@ class UserController {
     async index(req,res){
         const offset = req.query.offset;
         const limit = req.query.limit;
-        let actions = await this._actionService.index(offset,limit);
+        const result =await this._actionService.index(offset,limit);
+        let actions = result.rows;
+        const count = result.count;
+        console.log(count);
         actions = actions.map(action=> mapper(ActionDto,action));
         return res.json({
+            count,
             'data' : actions,
         })
     }

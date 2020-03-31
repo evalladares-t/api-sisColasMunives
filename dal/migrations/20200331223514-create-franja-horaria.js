@@ -1,34 +1,24 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Permissions', {
+    return queryInterface.createTable('Franja_horaria', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      fecha: {
         type: Sequelize.STRING
       },
-      state: {
+      inicio: {
+        type: Sequelize.DATE
+      },
+      fin: {
+        type: Sequelize.DATE
+      },
+      estado: {
         type: Sequelize.BOOLEAN
-      },
-      profileId: {
-        type: Sequelize.INTEGER,
-        onDelete:'CASCADE',
-        references:{
-          model: 'Profiles',
-          key:'id'
-        }
-      },
-      actionId: {
-        type: Sequelize.INTEGER,
-        onDelete:'CASCADE',
-        references:{
-          model: 'Actions',
-          key:'id'
-        }
       },
       createdAt: {
         allowNull: false,
@@ -41,6 +31,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Permissions');
+    return queryInterface.dropTable('Franja_horaria');
   }
 };

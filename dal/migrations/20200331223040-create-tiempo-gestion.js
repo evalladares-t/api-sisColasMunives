@@ -1,19 +1,21 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Actions', {
+    return queryInterface.createTable('Tiempo_gestions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        type: Sequelize.STRING
+      fecha: {
+        type: Sequelize.DATE
       },
-      owner: {
-        type: Sequelize.INTEGER,
-        allowNull: true
+      inicio: {
+        type: Sequelize.DATE
+      },
+      fin: {
+        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,
@@ -26,6 +28,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Actions');
+    return queryInterface.dropTable('Tiempo_gestions');
   }
 };

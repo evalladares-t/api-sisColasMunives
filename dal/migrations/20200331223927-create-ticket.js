@@ -1,39 +1,37 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Users', {
+    return queryInterface.createTable('Tickets', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      nombre: {
         type: Sequelize.STRING
       },
-      lastname: {
-        type: Sequelize.STRING
-      },
-      dni: {
-        type: Sequelize.STRING
-      },
-      username: {
-        type: Sequelize.STRING
-      },
-      password: {
-        type: Sequelize.STRING
-      },
-      imageurl: {
-        type: Sequelize.STRING
-      },
-      state: {
-        type: Sequelize.BOOLEAN
-      },
-      profileId: {
+      franja_horariaId: {
         type: Sequelize.INTEGER,
         onDelete:'CASCADE',
         references:{
-          model: 'Profiles',
+          model: 'Franja_horaria',
+          key:'id'
+        }
+      },
+      prioridadId: {
+        type: Sequelize.INTEGER,
+        onDelete:'CASCADE',
+        references:{
+          model: 'Prioridads',
+          key:'id'
+        }
+      },
+      administradoId: {
+        type: Sequelize.INTEGER,
+        onDelete:'CASCADE',
+        references:{
+          model: 'Administrados',
           key:'id'
         }
       },
@@ -48,6 +46,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Users');
+    return queryInterface.dropTable('Tickets');
   }
 };

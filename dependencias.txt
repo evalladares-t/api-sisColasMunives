@@ -8,4 +8,43 @@ sequelize model:create --name Profile --attributes name:string
 sequelize model:create --name Permission --attributes name:string,state:boolean,profileId:integer,actionId:Integer
 sequelize model:create --name User --attributes name:string,lastname:string,dni:string,username:string,password:string,imageurl:string,state:boolean,profileId:integer
 sequelize model:create --name Multimedia --attributes name:string,url:string,userId:integer
-//sequelize model:create --name Time-management --attributes data:data,inicio:data,fin:date,userId:integer
+sequelize model:create --name Type_module --attributes name:string
+sequelize model:create --name State_management --attributes name:string
+sequelize model:create --name Module --attributes name:string,state:boolean,type_moduleId:integer
+sequelize model:create --name Time_management --attributes date:date,start:date,end:date
+sequelize model:create --name State_module --attributes name:string
+sequelize model:create --name Module_register --attributes userId:integer,moduleId:integer,time_managementId:integer,state_managementId:integer
+sequelize model:create --name Time_zone --attributes date:string,inicio:date,fin:date,state:boolean
+sequelize model:create --name Priority --attributes name:string,value:integer
+
+
+sequelize model:create --name Type_module --attributes name:string
+
+//Castellano:
+sequelize model:create --name Accion --attributes nombre:string,dueño:integer
+sequelize model:create --name Perfil --attributes nombre:string
+sequelize model:create --name Permiso --attributes nombre:string,estado:boolean,perfilId:integer,accionId:Integer
+sequelize model:create --name Usuario --attributes nombre:string,apellidos:string,dni:string,username:string,password:string,imagenurl:string,estado:boolean,perfilId:integer
+sequelize model:create --name Multimedia --attributes nombre:string,url:string,usuarioId:integer
+sequelize model:create --name Tipo_modulo --attributes nombre:string
+sequelize model:create --name Modulo --attributes nombre:string,estado:boolean,tipo_moduloId:integer
+sequelize model:create --name Estado_registro --attributes nombre:string
+sequelize model:create --name Tiempo_gestion --attributes fecha:date,inicio:date,fin:date
+sequelize model:create --name Registro_modulo --attributes usuarioId:integer,moduloId:integer,tiempo_gestionId:integer,estado_registroId:integer
+
+
+sequelize model:create --name Franja_horaria --attributes fecha:string,inicio:date,fin:date,estado:boolean
+sequelize model:create --name Prioridad --attributes nombre:string,valor:integer
+sequelize model:create --name Estado_atencion --attributes nombre:string
+
+
+sequelize model:create --name Tipo_administrado --attributes nombre:string
+sequelize model:create --name Administrado --attributes nombre:string,apellidos:string,dni:string,cod_rentas:string,tipo_administradoId:integer
+
+sequelize model:create --name Ticket --attributes nombre:string,franja_horariaId:integer,administradoId:integer
+
+sequelize model:create --name Tipo_casuistica --attributes nombre:string
+sequelize model:create --name Casuistica --attributes nombre:string,prioridadId:integer,tipo_casuisticaId:integer
+
+sequelize model:create --name Atencion --attributes descripcion:string,estado_atencionId:integer,casuisticaId:integer,ticketId:integer,derivaId:integer
+sequelize model:create --name Deriva --attributes atencionId:integer
