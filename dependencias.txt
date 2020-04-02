@@ -31,20 +31,48 @@ sequelize model:create --name Modulo --attributes nombre:string,estado:boolean,t
 sequelize model:create --name Estado_registro --attributes nombre:string
 sequelize model:create --name Tiempo_gestion --attributes fecha:date,inicio:date,fin:date
 sequelize model:create --name Registro_modulo --attributes usuarioId:integer,moduloId:integer,tiempo_gestionId:integer,estado_registroId:integer
-
-
 sequelize model:create --name Franja_horaria --attributes fecha:string,inicio:date,fin:date,estado:boolean
 sequelize model:create --name Prioridad --attributes nombre:string,valor:integer
 sequelize model:create --name Estado_atencion --attributes nombre:string
-
-
 sequelize model:create --name Tipo_administrado --attributes nombre:string
 sequelize model:create --name Administrado --attributes nombre:string,apellidos:string,dni:string,cod_rentas:string,tipo_administradoId:integer
-
 sequelize model:create --name Ticket --attributes nombre:string,franja_horariaId:integer,administradoId:integer
-
 sequelize model:create --name Tipo_casuistica --attributes nombre:string
 sequelize model:create --name Casuistica --attributes nombre:string,prioridadId:integer,tipo_casuisticaId:integer
-
 sequelize model:create --name Atencion --attributes descripcion:string,estado_atencionId:integer,casuisticaId:integer,ticketId:integer,derivaId:integer
 sequelize model:create --name Deriva --attributes atencionId:integer
+
+
+
+
+//Actualizar:
+sequelize model:create --name tb_accion --attributes nom:string,prov:integer
+sequelize model:create --name tb_perfil --attributes nom:string
+sequelize model:create --name tb_permiso --attributes nom:string,std:boolean,idperf:integer,idacc:Integer
+sequelize model:create --name tb_usuario --attributes nom:string,apells:string,dni:string,user:string,pass:string,imgurl:string,std:boolean,idperf:integer
+sequelize model:create --name tb_multimedia --attributes nom:string,url:string,iduser:integer
+sequelize model:create --name tb_tipomodulo --attributes nom:string
+sequelize model:create --name tb_modulo --attributes nom:string,std:boolean,idtipmod:integer
+sequelize model:create --name tb_estadoregistro --attributes nom:string
+sequelize model:create --name tb_tiempogestion --attributes fecha:date,inicio:date,fin:date
+sequelize model:create --name tb_registromodulo --attributes iduser:integer,idmodulo:integer,idtiempogestion:integer,idstdregis:integer
+sequelize model:create --name tb_franjahoraria --attributes fecha:string,inicio:date,fin:date,estado:boolean
+sequelize model:create --name tb_prioridad --attributes nom:string,val:integer
+sequelize model:create --name tb_estadoatencion --attributes nom:string
+sequelize model:create --name tb_tipoadministrado --attributes nom:string
+sequelize model:create --name tb_administrado --attributes nom:string,apells:string,dni:string,codrentas:string,idtipoadm:integer
+sequelize model:create --name tb_ticket --attributes nom:string,idfranjhor:integer,idadmin:integer,idpriord:integer
+sequelize model:create --name tb_tipocasuistica --attributes nom:string,idpriord:integer
+sequelize model:create --name tb_casuistica --attributes nom:string,idtipocasuis:integer
+sequelize model:create --name tb_atencion --attributes descrip:string,deriva:integer,iduser:integer,idstdatenc:integer,idcasuis:integer,idticket:integer
+
+
+
+
+
+
+
+
+sequelize db:migrate --url "postgres://postgres:Desarrollo2020@localhost:5432/siscolasmunives"
+sequelize db:migrate --url "mariadb://root:@localhost:3306/siscolasmunives"
+sequelize db:migrate --url "mssql://sa:Desarrollo2020@localhost:1433/siscolasmunives"

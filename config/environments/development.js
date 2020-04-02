@@ -2,11 +2,11 @@
 module.exports = {
     PORT : process.env.PORT,
     DB : {
-        username: 'root',
-        password : '',
+        username: 'postgres',
+        password : 'Desarrollo2020',
         database : 'siscolasmunives',
         host : 'localhost',
-        dialect: 'mariadb',
+        dialect: 'postgres',
         logging:false
     }
 };
