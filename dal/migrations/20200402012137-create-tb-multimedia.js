@@ -22,7 +22,7 @@ module.exports = {
         comment:'IDENTIFICADOR TABLA USUARIO',
         onDelete:'CASCADE',
         references:{
-          model: 'tb_usuarios',
+          model: 'tb_usuario',
           key:'iduser'
         }
       },

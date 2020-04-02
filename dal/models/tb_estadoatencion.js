@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   tb_estadoatencion.associate = function(models) {
     tb_estadoatencion.hasMany(models.tb_atencion,{
-      foreignKey: 'idstdatenc',
+      foreignKey: 'idstdaten',
       as:'tb_atencion'
     });
   };

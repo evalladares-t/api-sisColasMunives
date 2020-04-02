@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tb_atencions', {
+    return queryInterface.createTable('tb_atencion', {
       idatenc: {
         allowNull: false,
         autoIncrement: true,
@@ -23,17 +23,17 @@ module.exports = {
         comment:'IDENTIFICADOR TABLA USUARIO',
         onDelete:'CASCADE',
         references:{
-          model: 'tb_usuarios',
+          model: 'tb_usuario',
           key:'iduser'
         }
       },
-      idstdatenc: {
+      idstdaten: {
         type: Sequelize.INTEGER,
         comment:'IDENTIFICADOR TABLA ESTADO DE ATENCION',
         onDelete:'CASCADE',
         references:{
-          model: 'tb_estadoatencions',
-          key:'idstdatenc'
+          model: 'tb_estadoatencion',
+          key:'idstdaten'
         }
       },
       idcasuis: {
@@ -41,17 +41,17 @@ module.exports = {
         comment:'IDENTIFICADOR TABLA ESTADO DE ATENCION',
         onDelete:'CASCADE',
         references:{
-          model: 'tb_casuisticas',
+          model: 'tb_casuistica',
           key:'idcasuis'
         }
       },
-      idticket: {
+      idtick: {
         type: Sequelize.INTEGER,
         comment:'IDENTIFICADOR TABLA TICKET',
         onDelete:'CASCADE',
         references:{
-          model: 'tb_tickets',
-          key:'idticket'
+          model: 'tb_ticket',
+          key:'idtick'
         }
       },
       createdAt: {
@@ -69,6 +69,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tb_atencions');
+    return queryInterface.dropTable('tb_atencion');
   }
 };

@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tb_usuarios', {
+    return queryInterface.createTable('tb_usuario', {
       iduser: {
         allowNull: false,
         autoIncrement: true,
@@ -37,15 +37,6 @@ module.exports = {
       std: {
         type: Sequelize.BOOLEAN,
         comment:'ESTADO 1=ACTIVO  0= DESCATIVADO'
-      },
-      idperf: {
-        type: Sequelize.INTEGER,
-        comment:'IDENTIFICADOR TABLA PERFIL',
-        onDelete:'CASCADE',
-        references:{
-          model: 'tb_perfils',
-          key:'idperf'
-        }
       },
       createdAt: {
         allowNull: false,

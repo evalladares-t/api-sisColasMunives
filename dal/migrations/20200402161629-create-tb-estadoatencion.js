@@ -1,8 +1,8 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tb_estadoatencions', {
-      idstdatenc: {
+    return queryInterface.createTable('tb_estadoatencion', {
+      idstdaten: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -28,6 +28,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tb_estadoatencions');
+    return queryInterface.dropTable('tb_estadoatencion');
   }
 };

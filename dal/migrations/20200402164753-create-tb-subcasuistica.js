@@ -1,22 +1,26 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tb_accions', {
-      idacc: {
+    return queryInterface.createTable('tb_subcasuistica', {
+      idscas: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
-        comment: 'IDENTIFICADOR UNICO'
+        comment:'IDENTIFICADOR UNICO'
       },
       nom: {
         type: Sequelize.STRING,
-        comment:'NOMBRE DE LA ACCION'
+        comment:'NOMBRE DEL TIPO DE CASUISTICA'
       },
-      prov: {
+      idpriord: {
         type: Sequelize.INTEGER,
-        allowNull:true,
-        comment:'SI PROVIENE DE UNA ACCION PADRE (PUEDE SER NULO)'
+        comment: 'IDENTIFICADOR TABLA PRIORIDAD',
+        onDelete: 'CASCADE',
+        references: {
+          model: 'tb_prioridad',
+          key: 'idpriord'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -29,10 +33,10 @@ module.exports = {
         comment:'FECHA DE ACTUALIZACION DEL REGISTRO'
       }
     },{
-      comment: 'TABLA MAESTRO DE LAS ACCIONES DEL SISTEMA'
+      comment: 'TABLA MAESTRO DEL TIPO DE CASUISTICA DEL SISTEMA'
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tb_accions');
+    return queryInterface.dropTable('tb_tipocasuistica');
   }
 };

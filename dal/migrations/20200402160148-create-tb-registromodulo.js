@@ -1,8 +1,8 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tb_registromodulos', {
-      idregmodulo: {
+    return queryInterface.createTable('tb_registromodulo', {
+      Idrmod: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -14,26 +14,26 @@ module.exports = {
         comment:'IDENTIFICADOR TABLA USUARIO',
         onDelete:'CASCADE',
         references:{
-          model: 'tb_usuarios',
+          model: 'tb_usuario',
           key:'iduser'
         }
       },
-      idmodulo: {
+      idmod: {
         type: Sequelize.INTEGER,
         comment:'IDENTIFICADOR TABLA MODULO',
         onDelete:'CASCADE',
         references:{
-          model: 'tb_modulos',
-          key:'idmodulo'
+          model: 'tb_modulo',
+          key:'idmod'
         }
       },
-      idtiempogestion: {
+      idtmpgest: {
         type: Sequelize.INTEGER,
         comment:'IDENTIFICADOR TABLA TIEMPO GESTION',
         onDelete:'CASCADE',
         references:{
-          model: 'tb_tiempogestions',
-          key:'idtiempogestion'
+          model: 'tb_tiempogestion',
+          key:'idtmpgest'
         }
       },
       idstdregis: {
@@ -41,7 +41,7 @@ module.exports = {
         comment:'IDENTIFICADOR TABLA ESTADO DE REGISTRO',
         onDelete:'CASCADE',
         references:{
-          model: 'tb_estadoregistros',
+          model: 'tb_estadoregistro',
           key:'idstdregis'
         }
       },
@@ -60,6 +60,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tb_registromodulos');
+    return queryInterface.dropTable('tb_registromodulo');
   }
 };

@@ -1,8 +1,8 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tb_tickets', {
-      idticket: {
+    return queryInterface.createTable('tb_ticket', {
+      idtick: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -22,21 +22,12 @@ module.exports = {
           key:'idfranjhor'
         }
       },
-      idadmin: {
-        type: Sequelize.INTEGER,
-        comment:'IDENTIFICADOR TABLA ADMINISTRADO',
-        onDelete:'CASCADE',
-        references:{
-          model: 'tb_administrados',
-          key:'idadmin'
-        }
-      },
       idpriord: {
         type: Sequelize.INTEGER,
         comment:'IDENTIFICADOR TABLA PRIORIDAD',
         onDelete:'CASCADE',
         references:{
-          model: 'tb_prioridads',
+          model: 'tb_prioridad',
           key:'idpriord'
         }
       },
@@ -55,6 +46,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tb_tickets');
+    return queryInterface.dropTable('tb_ticket');
   }
 };

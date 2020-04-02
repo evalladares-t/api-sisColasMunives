@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tb_estadoregistros', {
+    return queryInterface.createTable('tb_estadoregistro', {
       idstdregis: {
         allowNull: false,
         autoIncrement: true,
@@ -28,6 +28,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tb_estadoregistros');
+    return queryInterface.dropTable('tb_estadoregistro');
   }
 };

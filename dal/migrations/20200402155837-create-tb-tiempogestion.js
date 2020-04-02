@@ -1,8 +1,8 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tb_tiempogestions', {
-      idtiempogestion: {
+    return queryInterface.createTable('tb_tiempogestion', {
+      idtmpgest: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -36,6 +36,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tb_tiempogestions');
+    return queryInterface.dropTable('tb_tiempogestion');
   }
 };

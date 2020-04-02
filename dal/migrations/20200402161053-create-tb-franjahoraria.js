@@ -21,7 +21,7 @@ module.exports = {
         type: Sequelize.DATE,
         comment:'HORA QUE SE TERMINA LA GESTION'
       },
-      estado: {
+      std: {
         type: Sequelize.BOOLEAN,
         comment:'ESTADO 1=ACTIVO  0= DESCATIVADO'
       },

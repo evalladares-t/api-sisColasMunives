@@ -1,8 +1,8 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tb_tipomodulos', {
-      idtipmod: {
+    return queryInterface.createTable('tb_tipomodulo', {
+      idtmod: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -28,6 +28,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tb_tipomodulos');
+    return queryInterface.dropTable('tb_tipomodulo');
   }
 };

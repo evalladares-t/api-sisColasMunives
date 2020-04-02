@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tb_casuisticas', {
+    return queryInterface.createTable('tb_casuistica', {
       idcasuis: {
         allowNull: false,
         autoIncrement: true,
@@ -13,13 +13,13 @@ module.exports = {
         type: Sequelize.STRING,
         comment:'NOMBRE DE LA CASUISTICA'
       },
-      idtipocasuis: {
+      idscas: {
         type: Sequelize.INTEGER,
         comment:'IDENTIFICADOR TABLA TIPO CASUISTICA',
         onDelete:'CASCADE',
         references:{
-          model: 'tb_tipocasuisticas',
-          key:'idtipocasuis'
+          model: 'tb_subcasuistica',
+          key:'idscas'
         }
       },
       createdAt: {
@@ -37,6 +37,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tb_casuisticas');
+    return queryInterface.dropTable('tb_casuistica');
   }
 };

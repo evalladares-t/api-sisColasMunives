@@ -8,7 +8,6 @@ module.exports = (sequelize, DataTypes) => {
     pass: DataTypes.STRING,
     imgurl: DataTypes.STRING,
     std: DataTypes.BOOLEAN,
-    idperf: DataTypes.INTEGER
   }, {});
   tb_usuario.associate = function(models) {
     tb_usuario.hasMany(models.tb_multimedia,{

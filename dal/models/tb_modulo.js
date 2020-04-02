@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const tb_modulo = sequelize.define('tb_modulo', {
     nom: DataTypes.STRING,
     std: DataTypes.BOOLEAN,
-    idtipmod: DataTypes.INTEGER
+    idtmod: DataTypes.INTEGER
   }, {});
   tb_modulo.associate = function(models) {
     tb_modulo.hasMany(models.tb_registromodulo,{

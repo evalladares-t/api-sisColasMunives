@@ -1,8 +1,8 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tb_modulos', {
-      idmodulo: {
+    return queryInterface.createTable('tb_modulo', {
+      idmod: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -17,13 +17,13 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         comment:'ESTADO 1=ACTIVO  0= DESCATIVADO'
       },
-      idtipmod: {
+      idtmod: {
         type: Sequelize.INTEGER,
         comment:'IDENTIFICADOR TABLA TIPO MODULO',
         onDelete:'CASCADE',
         references:{
-          model: 'tb_tipomodulos',
-          key:'idtipmod'
+          model: 'tb_tipomodulo',
+          key:'idtmod'
         }
       },
       createdAt: {
@@ -41,6 +41,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tb_modulos');
+    return queryInterface.dropTable('tb_modulo');
   }
 };

@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tb_prioridads', {
+    return queryInterface.createTable('tb_prioridad', {
       idpriord: {
         allowNull: false,
         autoIncrement: true,
@@ -32,6 +32,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tb_prioridads');
+    return queryInterface.dropTable('tb_prioridad');
   }
 };
