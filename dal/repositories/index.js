@@ -1,4 +1,4 @@
 module.exports = {
-    ActionRepository: require("./action.repository"),
+    PrioridadRepository: require("./prioridad.repository"),
 
 };

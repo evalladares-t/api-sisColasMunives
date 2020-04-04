@@ -1,3 +1,3 @@
 module.exports = {
-    ActionBusiness: require("./action.business"),
+    PrioridadBusiness: require("./prioridad.business")
 };

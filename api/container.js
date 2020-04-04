@@ -7,19 +7,22 @@ const config = require('../config/environments');
 
 //routes
 const Routes = require('./routes');
-const ActionRoutes = require('./routes/action.routes');
+const PrioridadRoutes = require('./routes/prioridad.routes');
 
 //controller
-const {ActionController} = require('./controllers');
+const {PrioridadController} = require('./controllers');
 
 //services
-const {ActionService} = require('../services');
-
-//repositories
-const {ActionRepository} = require('../dal/repositories');
+const {PrioridadService} = require('../services');
 
 //business
-const {ActionBusiness} = require('../domain');
+const {PrioridadBusiness} = require('../domain');
+
+
+//repositories
+const {PrioridadRepository} = require('../dal/repositories');
+
+
 
 //conf db
 const db = require('../dal/models');
@@ -33,8 +36,8 @@ container
         server : asClass(Server).singleton(),
         router : asFunction(Routes).singleton(),
         //Api Action
-        ActionController : asClass(ActionController).singleton(),
-        ActionRoutes : asFunction(ActionRoutes).singleton()
+        PrioridadController : asClass(PrioridadController).singleton(),
+        PrioridadRoutes : asFunction(PrioridadRoutes).singleton()
     })
     .register({
         config : asValue(config)
@@ -43,13 +46,14 @@ container
         db : asValue(db)
     })
     .register({
-        ActionService : asClass(ActionService).singleton()
+        PrioridadService : asClass(PrioridadService).singleton()
     })
     .register({
-        ActionRepository : asClass(ActionRepository).singleton()
+        PrioridadBusiness: asClass(PrioridadBusiness).singleton()
     })
     .register({
-        ActionBusiness: asClass(ActionBusiness).singleton()
+        PrioridadRepository : asClass(PrioridadRepository).singleton()
     });
+
 
 module.exports = container;

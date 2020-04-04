@@ -8,8 +8,6 @@ class BaseService {
         const result = await this._entityBusiness.index(offset,limit);
         const rows = result.rows;
         const count = result.count;
-/*        console.log(count);
-        console.log(rows);*/
         return {rows,count};
     }
 

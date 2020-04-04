@@ -7,6 +7,7 @@ module.exports = {
         database : 'siscolasmunives',
         host : 'localhost',
         dialect: 'postgres',
+        freezeTableName:true,
         logging:false
     }
 };

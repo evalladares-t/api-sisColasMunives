@@ -1,6 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const tb_usuario = sequelize.define('tb_usuario', {
+    iduser: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement:true
+    },
     nom: DataTypes.STRING,
     apells: DataTypes.STRING,
     dni: DataTypes.STRING,
@@ -8,7 +13,9 @@ module.exports = (sequelize, DataTypes) => {
     pass: DataTypes.STRING,
     imgurl: DataTypes.STRING,
     std: DataTypes.BOOLEAN,
-  }, {});
+  }, {
+    freezeTableName: true
+  });
   tb_usuario.associate = function(models) {
     tb_usuario.hasMany(models.tb_multimedia,{
       foreignKey: 'iduser',

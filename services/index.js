@@ -1,3 +1,3 @@
 module.exports = {
-    ActionService : require('./action.service')
+    PrioridadService : require('./prioridad.service')
 };

@@ -1,3 +1,3 @@
 module.exports = {
-    ActionDto : require('./action.dto')
+    PrioridadDTO : require('./prioridad.dto')
 };

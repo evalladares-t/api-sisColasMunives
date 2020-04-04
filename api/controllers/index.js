@@ -1,5 +1,4 @@
-module.exports = {
-    ActionController : require('./action.controller'),
-    ProfileController : require('./profile.controller')
 
+module.exports = {
+    PrioridadController : require('./prioridad.controller')
 };

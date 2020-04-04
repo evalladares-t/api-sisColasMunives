@@ -5,29 +5,15 @@ class BaseRepository {
     }
 
     index(offset,limit) {
-        const inicio = parseInt(offset);
-        const limite = parseInt(limit);
-        return this._db[this.entity].findAndCountAll({
-            offset:inicio,limit:limite});
-    }
 
-    show(id) {
-        return this._db[this.entity].findOne({ where: { id } });
+        return this._db[this.entity].findAndCountAll({
+            offset,limit});
     }
 
     store(entity) {
         return this._db[this.entity].create(entity);
     }
 
-    update(id, entity) {
-        delete entity.createdAt;
-        delete entity.updatedAt;
-        return this._db[this.entity].update(entity, { where: { id } });
-    }
-
-    destroy(id) {
-        return this._db[this.entity].destroy({ where: { id } });
-    }
 }
 
 module.exports = BaseRepository;

@@ -1,4 +1,4 @@
 
 module.exports = {
-    Action: require("./action.models"),
+    Prioridad: require("./prioridad.models"),
 };
