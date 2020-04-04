@@ -8,6 +8,12 @@ apiRoute.use(cors()).use(bodyParser.json()).use(compression());
 
 module.exports = function ({PrioridadRoutes}) {
     apiRoute.use('/prioridad', PrioridadRoutes);
+    router.get('/api/v1.0',(req,res)=>{
+        const {protocol, hostname,url} = req;
+        res.json({
+            'Prioridad': `${protocol}://${hostname}/${url}/prioridad`
+        })
+    });
     router.use('/api/v1.0',apiRoute);
     return router;
 };
