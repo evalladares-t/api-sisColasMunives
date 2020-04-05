@@ -9,23 +9,28 @@ const config = require('../config/environments');
 const Routes = require('./routes');
 const PrioridadRoutes = require('./routes/prioridad.routes');
 const FranjaHorariaRoutes = require('./routes/franjahoraria.routes');
+const TipoModuloRoutes = require('./routes/tipomulo.routes');
 
 //controller
 const {PrioridadController,
-    Franjahorariacontroller} = require('./controllers');
+    Franjahorariacontroller,
+    TipoModuloController} = require('./controllers');
 
 //services
 const {PrioridadService,
-    FranjaHorariaService} = require('../services');
+    FranjaHorariaService,
+    TipoModuloService} = require('../services');
 
 //business
 const {PrioridadBusiness,
-    FranjaHorariaBusiness} = require('../domain');
+    FranjaHorariaBusiness,
+    TipoModuloBusiness} = require('../domain');
 
 
 //repositories
 const {PrioridadRepository,
-    FranjaHorariaRepository} = require('../dal/repositories');
+    FranjaHorariaRepository,
+    TipomoduloRepository} = require('../dal/repositories');
 
 
 
@@ -42,10 +47,14 @@ container
         server : asClass(Server).singleton(),
         router : asFunction(Routes).singleton(),
         //Api Action
+            //Controllers
         PrioridadController : asClass(PrioridadController).singleton(),
         Franjahorariacontroller : asClass(Franjahorariacontroller).singleton(),
+        TipoModuloController : asClass(TipoModuloController).singleton(),
+            //Routes
         PrioridadRoutes : asFunction(PrioridadRoutes).singleton(),
-        FranjaHorariaRoutes : asFunction(FranjaHorariaRoutes).singleton()
+        FranjaHorariaRoutes : asFunction(FranjaHorariaRoutes).singleton(),
+        TipoModuloRoutes : asFunction(TipoModuloRoutes).singleton()
     })
     .register({
         config : asValue(config)
@@ -56,14 +65,17 @@ container
     .register({
         PrioridadService : asClass(PrioridadService).singleton(),
         FranjaHorariaService : asClass(FranjaHorariaService).singleton(),
+        TipoModuloService : asClass(TipoModuloService).singleton(),
     })
     .register({
         PrioridadBusiness: asClass(PrioridadBusiness).singleton(),
         FranjaHorariaBusiness: asClass(FranjaHorariaBusiness).singleton(),
+        TipoModuloBusiness: asClass(TipoModuloBusiness).singleton(),
     })
     .register({
         PrioridadRepository : asClass(PrioridadRepository).singleton(),
         FranjaHorariaRepository : asClass(FranjaHorariaRepository).singleton(),
+        TipomoduloRepository : asClass(TipomoduloRepository).singleton()
     });
 
 

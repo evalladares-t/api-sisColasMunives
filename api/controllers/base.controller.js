@@ -81,9 +81,7 @@ class baseController{
     async store(req,res){
         const {body} = req;
         const store = await this._serviceBase.store(body);
-        console.log(store);
         const result = mapper(this._DTO,store);
-
         return res.status(201).json({
             'data' : result
         })
@@ -92,7 +90,7 @@ class baseController{
     async update(req,res){
         const {body} = req;
         const {id} = req.params;
-        await this._serviceBase.update(id,body);
+        const x = await this._serviceBase.update(id,body);
         return res.status(201).json({
             'message':'Se actualizo correctamente',
             'data' : {

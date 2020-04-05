@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     inicio: {
       type:DataTypes.DATE,
-      comment:'HORA QUE SE INICIA LA GESTION'
+      comment:'HORA QUE SE INICIA LA GESTION',
+      allowNull:true
     },
     fin: {
       type:DataTypes.DATE,

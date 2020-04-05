@@ -28,8 +28,6 @@ class BaseBusiness {
 
     async update(id, entity) {
         entity = mapper(this.entityToMap, entity);
-        entity.idpriord = parseInt(id);
-        console.log(entity);
         const updatedEntity = await this._entityRepository.update(id, entity);
         return mapper(this.entityToMap, updatedEntity);
     }

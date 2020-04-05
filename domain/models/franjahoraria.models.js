@@ -3,8 +3,8 @@
 class FranjahorariaModels{
     idfranjhor = 0;
     fecha = "";
-    inicio = Date.now();
-    fin = Date.now();
-    std = false;
+    inicio = null;
+    fin = null;
+    std = null;
 }
 module.exports = FranjahorariaModels;
