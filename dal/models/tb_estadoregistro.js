@@ -4,11 +4,16 @@ module.exports = (sequelize, DataTypes) => {
     idstdregis: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement:true
+      autoIncrement:true,
+      comment: 'IDENTIFICADOR UNICO'
     },
-    nom: DataTypes.STRING
+    nom: {
+      type:DataTypes.STRING,
+      comment:'NOMBRE DEL ESTADO DEL REGISTRO'
+    }
   }, {
-    freezeTableName: true
+    freezeTableName: true,
+    comment: 'TABLA MAESTRO DE LOS ESTADOS DE REGISTRO DE LOS MODULOS DEL SISTEMA'
   });
   tb_estadoregistro.associate = function(models) {
     tb_estadoregistro.hasMany(models.tb_registromodulo,{

@@ -38,7 +38,7 @@ module.exports = {
       },
       idcasuis: {
         type: Sequelize.INTEGER,
-        comment:'IDENTIFICADOR TABLA ESTADO DE ATENCION',
+        comment:'IDENTIFICADOR TABLA CASUISTICA',
         onDelete:'CASCADE',
         references:{
           model: 'tb_casuistica',

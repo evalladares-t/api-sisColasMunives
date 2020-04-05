@@ -4,12 +4,20 @@ module.exports = (sequelize, DataTypes) => {
     idcasuis: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement:true
+      autoIncrement:true,
+      comment:'IDENTIFICADOR UNICO'
     },
-    nom: DataTypes.STRING,
-    idtipocasuis: DataTypes.INTEGER
+    nom: {
+      type:DataTypes.STRING,
+      comment:'NOMBRE DE LA CASUISTICA'
+    },
+    idtipocasuis: {
+      type:DataTypes.INTEGER,
+      comment:'IDENTIFICADOR TABLA TIPO CASUISTICA',
+    }
   }, {
-    freezeTableName: true
+    freezeTableName: true,
+    comment: 'TABLA MAESTRO DE LA CASUISTICA DEL SISTEMA'
   });
   tb_casuistica.associate = function(models) {
     tb_casuistica.hasMany(models.tb_atencion,{

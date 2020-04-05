@@ -4,12 +4,20 @@ module.exports = (sequelize, DataTypes) => {
     idscas: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement:true
+      autoIncrement:true,
+      comment:'IDENTIFICADOR UNICO'
     },
-    nom: DataTypes.STRING,
-    idpriord: DataTypes.INTEGER
+    nom: {
+      type:DataTypes.STRING,
+      comment:'NOMBRE DEL TIPO DE CASUISTICA'
+    },
+    idpriord: {
+      type:DataTypes.INTEGER,
+      comment: 'IDENTIFICADOR TABLA PRIORIDAD',
+    }
   }, {
-    freezeTableName: true
+    freezeTableName: true,
+    comment: 'TABLA MAESTRO DEL TIPO DE SUB CASUISTICA DEL SISTEMA'
   });
   tb_tipocasuistica.associate = function(models) {
     // associations can be defined here

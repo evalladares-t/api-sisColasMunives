@@ -4,11 +4,16 @@ module.exports = (sequelize, DataTypes) => {
     idtmod: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement:true
+      autoIncrement:true,
+      comment:'IDENTIFICADOR UNICO'
     },
-    nom: DataTypes.STRING
+    nom: {
+      type:DataTypes.STRING,
+      comment:'NOMBRE DEL TIPO DE MODULO'
+    }
   }, {
-    freezeTableName: true
+    freezeTableName: true,
+    comment:'TABLA MAESTRO DE LOS TIPOS DE MODULOS DEL SISTEMA'
   });
   tb_tipomodulo.associate = function(models) {
     tb_tipomodulo.hasMany(models.tb_modulo,{

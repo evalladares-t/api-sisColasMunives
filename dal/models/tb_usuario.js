@@ -4,17 +4,41 @@ module.exports = (sequelize, DataTypes) => {
     iduser: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement:true
+      autoIncrement:true,
+      comment:'IDENTIFICADOR UNICO'
     },
-    nom: DataTypes.STRING,
-    apells: DataTypes.STRING,
-    dni: DataTypes.STRING,
-    user: DataTypes.STRING,
-    pass: DataTypes.STRING,
-    imgurl: DataTypes.STRING,
-    std: DataTypes.BOOLEAN,
+    nom: {
+      type:DataTypes.STRING,
+      comment:'NOMBRE DEL USUARIO'
+    },
+    apells: {
+      type: DataTypes.STRING,
+      comment:'APELLIDOS DEL USUARIO'
+    },
+    dni: {
+      type : DataTypes.STRING,
+      comment:'DNI DEL USUARIO'
+    },
+    user: {
+      type: DataTypes.STRING,
+      comment:'USERNAME DEL USUARIO PARA INGRESAR AL SISTEMA'
+    },
+    pass: {
+      type: DataTypes.STRING,
+      comment:'PASSWORD DEL USUARIO PARA INGRESAR AL SISTEMA'
+    },
+    imgurl: {
+      type:DataTypes.STRING,
+      allowNull:true,
+      comment:'DIRECCION URL DE LA FOTO DEL USUARIO'
+    },
+    std: {
+      type:DataTypes.BOOLEAN,
+      comment:'ESTADO 1=ACTIVO  0= DESCATIVADO'
+    },
   }, {
-    freezeTableName: true
+    freezeTableName: true,
+    comment: 'TABLA MAESTRO DE LOS USUARIOS DEL SISTEMA'
   });
   tb_usuario.associate = function(models) {
     tb_usuario.hasMany(models.tb_multimedia,{

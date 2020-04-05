@@ -4,13 +4,24 @@ module.exports = (sequelize, DataTypes) => {
     idmultim: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement:true
+      autoIncrement:true,
+      comment:'IDENTIFICADOR UNICO'
     },
-    nom: DataTypes.STRING,
-    url: DataTypes.STRING,
-    iduser: DataTypes.INTEGER
+    nom: {
+      type:DataTypes.STRING,
+      comment:'NOMBRE DEL ARCHIVO MULTIMEDIA'
+    },
+    url: {
+      type:DataTypes.STRING,
+      comment:'DIRECCION URL DEL ARCHIVO MULTIMEDIA'
+    },
+    iduser: {
+      type: DataTypes.INTEGER,
+      comment: 'IDENTIFICADOR TABLA USUARIO',
+    }
   }, {
-    freezeTableName: true
+    freezeTableName: true,
+    comment: 'TABLA MAESTRO DE LOS ARCHIVOS MULTIMEDIA DEL SISTEMA'
   });
   tb_multimedia.associate = function(models) {
     // associations can be defined here

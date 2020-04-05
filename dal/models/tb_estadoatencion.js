@@ -4,11 +4,16 @@ module.exports = (sequelize, DataTypes) => {
     idstdaten: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement:true
+      autoIncrement:true,
+      comment:'IDENTIFICADOR UNICO'
     },
-    nom: DataTypes.STRING
+    nom: {
+      type:DataTypes.STRING,
+      comment:'NOMBRE DEL ESTADO DE LA ATENCION'
+    }
   }, {
-    freezeTableName: true
+    freezeTableName: true,
+    comment: 'TABLA MAESTRO DEL ESTADO DE ATENCION DEL SISTEMA'
   });
   tb_estadoatencion.associate = function(models) {
     tb_estadoatencion.hasMany(models.tb_atencion,{

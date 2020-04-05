@@ -33,7 +33,7 @@ module.exports = {
         comment:'FECHA DE ACTUALIZACION DEL REGISTRO'
       }
     },{
-      comment: 'TABLA MAESTRO DEL TIPO DE CASUISTICA DEL SISTEMA'
+      comment: 'TABLA MAESTRO DEL TIPO DE SUB CASUISTICA DEL SISTEMA'
     });
   },
   down: (queryInterface, Sequelize) => {

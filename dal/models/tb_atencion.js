@@ -4,16 +4,37 @@ module.exports = (sequelize, DataTypes) => {
     idatenc: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement:true
+      autoIncrement:true,
+      comment:'IDENTIFICADOR UNICO'
     },
-    descrip: DataTypes.STRING,
-    deriva: DataTypes.INTEGER,
-    idstdaten: DataTypes.INTEGER,
-    idcasuis: DataTypes.INTEGER,
-    idtick: DataTypes.INTEGER,
-    iduser: DataTypes.INTEGER
+    descrip: {
+      type:DataTypes.STRING,
+      comment:'DESCRIPCION DE LA ATENCION'
+    },
+    deriva: {
+      type:DataTypes.INTEGER,
+      allowNull:true,
+      comment:'SI DERIVA DE OTRA ATENCION (PUEDE SER NULO)'
+    },
+    idstdaten: {
+      type:DataTypes.INTEGER,
+      comment:'IDENTIFICADOR TABLA ESTADO DE ATENCION',
+    },
+    idcasuis: {
+      type:DataTypes.INTEGER,
+      comment:'IDENTIFICADOR TABLA CASUISTICA',
+    },
+    idtick: {
+      type:DataTypes.INTEGER,
+      comment:'IDENTIFICADOR TABLA TICKET',
+    },
+    iduser: {
+      type:DataTypes.INTEGER,
+      comment:'IDENTIFICADOR TABLA USUARIO',
+    }
   }, {
-    freezeTableName: true
+    freezeTableName: true,
+    comment: 'TABLA MAESTRO DE LA ATENCION DEL SISTEMA'
   });
   tb_atencion.associate = function(models) {
     // associations can be defined here

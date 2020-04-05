@@ -4,13 +4,25 @@ module.exports = (sequelize, DataTypes) => {
     idtmpgest: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement:true
+      autoIncrement:true,
+      comment: 'IDENTIFICADOR UNICO'
     },
-    fecha: DataTypes.DATE,
-    inicio: DataTypes.DATE,
-    fin: DataTypes.DATE
+    fecha: {
+      type:DataTypes.DATE,
+      comment:'FECHA (DIA) QUE INICIA LA GESTION'
+    },
+    inicio: {
+      type:DataTypes.DATE,
+      comment:'HORA QUE INICIA LA GESTION'
+    },
+    fin: {
+      type:DataTypes.DATE,
+      allowNull:true,
+      comment:'HORA QUE TERMINA LA GESTION'
+    }
   }, {
-    freezeTableName: true
+    freezeTableName: true,
+    comment: 'TABLA MAESTRO DEL TIEMPO DE GESTION DEL SISTEMA'
   });
   tb_tiempogestion.associate = function(models) {
     tb_tiempogestion.hasMany(models.tb_registromodulo,{

@@ -4,13 +4,24 @@ module.exports = (sequelize, DataTypes) => {
     idmod: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement:true
+      autoIncrement:true,
+      comment: 'IDENTIFICADOR UNICO'
     },
-    nom: DataTypes.STRING,
-    std: DataTypes.BOOLEAN,
-    idtmod: DataTypes.INTEGER
+    nom: {
+      type:DataTypes.STRING,
+      comment:'NOMBRE DEL MODULO'
+    },
+    std: {
+      type:DataTypes.BOOLEAN,
+      comment:'ESTADO 1=ACTIVO  0= DESCATIVADO'
+    },
+    idtmod: {
+      type:DataTypes.INTEGER,
+      comment:'IDENTIFICADOR TABLA TIPO MODULO',
+    }
   }, {
-    freezeTableName: true
+    freezeTableName: true,
+    comment: 'TABLA MAESTRO DE LOS MODULOS DEL SISTEMA'
   });
   tb_modulo.associate = function(models) {
     tb_modulo.hasMany(models.tb_registromodulo,{

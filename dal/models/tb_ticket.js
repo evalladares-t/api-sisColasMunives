@@ -4,13 +4,24 @@ module.exports = (sequelize, DataTypes) => {
     idtick: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement:true
+      autoIncrement:true,
+      comment:'IDENTIFICADOR UNICO'
     },
-    nom: DataTypes.STRING,
-    idfranjhor: DataTypes.INTEGER,
-    idpriord: DataTypes.INTEGER
+    nom: {
+      type:DataTypes.STRING,
+      comment:'NOMBRE DEL TICKET'
+    },
+    idfranjhor: {
+      type:DataTypes.INTEGER,
+      comment:'IDENTIFICADOR TABLA FRANJA HORARIA',
+    },
+    idpriord: {
+      type:DataTypes.INTEGER,
+      comment:'IDENTIFICADOR TABLA PRIORIDAD',
+    }
   }, {
-    freezeTableName: true
+    freezeTableName: true,
+    comment: 'TABLA MAESTRO DEL TICKET GENERADO DEL SISTEMA'
   });
   tb_ticket.associate = function(models) {
     tb_ticket.hasMany(models.tb_atencion,{

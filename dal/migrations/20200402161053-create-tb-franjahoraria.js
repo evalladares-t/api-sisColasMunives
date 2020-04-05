@@ -19,6 +19,7 @@ module.exports = {
       },
       fin: {
         type: Sequelize.DATE,
+        allowNull:true,
         comment:'HORA QUE SE TERMINA LA GESTION'
       },
       std: {
