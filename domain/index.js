@@ -1,3 +1,4 @@
 module.exports = {
-    PrioridadBusiness: require("./prioridad.business")
+    PrioridadBusiness: require("./prioridad.business"),
+    FranjaHorariaBusiness : require('./franjahoraria.business')
 };

@@ -1,5 +1,5 @@
 const mapper = require("automapper-js");
-
+//2020-04-04T22:23:47.965Z
 class BaseBusiness {
     constructor(EntityRepository, entityToMap) {
         this._entityRepository = EntityRepository;
@@ -7,7 +7,7 @@ class BaseBusiness {
     }
 
     async index(offset,limit) {
-        const result= await await (this._entityRepository.index(offset,limit));
+        const result= await (this._entityRepository.index(offset,limit));
         const entities = result.rows;
         const count = result.count;
         const rows = entities.map(entity => mapper(this.entityToMap, entity.toJSON()));

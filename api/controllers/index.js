@@ -1,4 +1,5 @@
 
 module.exports = {
-    PrioridadController : require('./prioridad.controller')
+    PrioridadController : require('./prioridad.controller'),
+    Franjahorariacontroller : require('./franjahoraria.controller')
 };

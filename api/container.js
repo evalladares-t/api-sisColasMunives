@@ -8,19 +8,25 @@ const config = require('../config/environments');
 //routes
 const Routes = require('./routes');
 const PrioridadRoutes = require('./routes/prioridad.routes');
+const FranjaHorariaRoutes = require('./routes/franjahoraria.routes');
 
 //controller
-const {PrioridadController} = require('./controllers');
+const {PrioridadController,
+    Franjahorariacontroller} = require('./controllers');
 
 //services
-const {PrioridadService} = require('../services');
+const {PrioridadService,
+    FranjaHorariaService} = require('../services');
 
 //business
-const {PrioridadBusiness} = require('../domain');
+const {PrioridadBusiness,
+    FranjaHorariaBusiness} = require('../domain');
 
 
 //repositories
-const {PrioridadRepository} = require('../dal/repositories');
+const {PrioridadRepository,
+    FranjaHorariaRepository} = require('../dal/repositories');
+
 
 
 
@@ -37,7 +43,9 @@ container
         router : asFunction(Routes).singleton(),
         //Api Action
         PrioridadController : asClass(PrioridadController).singleton(),
-        PrioridadRoutes : asFunction(PrioridadRoutes).singleton()
+        Franjahorariacontroller : asClass(Franjahorariacontroller).singleton(),
+        PrioridadRoutes : asFunction(PrioridadRoutes).singleton(),
+        FranjaHorariaRoutes : asFunction(FranjaHorariaRoutes).singleton()
     })
     .register({
         config : asValue(config)
@@ -46,13 +54,16 @@ container
         db : asValue(db)
     })
     .register({
-        PrioridadService : asClass(PrioridadService).singleton()
+        PrioridadService : asClass(PrioridadService).singleton(),
+        FranjaHorariaService : asClass(FranjaHorariaService).singleton(),
     })
     .register({
-        PrioridadBusiness: asClass(PrioridadBusiness).singleton()
+        PrioridadBusiness: asClass(PrioridadBusiness).singleton(),
+        FranjaHorariaBusiness: asClass(FranjaHorariaBusiness).singleton(),
     })
     .register({
-        PrioridadRepository : asClass(PrioridadRepository).singleton()
+        PrioridadRepository : asClass(PrioridadRepository).singleton(),
+        FranjaHorariaRepository : asClass(FranjaHorariaRepository).singleton(),
     });
 
 
