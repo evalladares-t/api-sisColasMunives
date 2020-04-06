@@ -89,13 +89,11 @@ class baseController{
     async update(req,res){
         const {body} = req;
         const {id} = req.params;
-        const x = await this._serviceBase.update(id,body);
+        await this._serviceBase.update(id,body);
         return res.status(201).json({
             'message':'Se actualizo correctamente',
             'data' : {
-                id,
-                nom:body.nom,
-                val:body.val
+                id
             }
         })
     }

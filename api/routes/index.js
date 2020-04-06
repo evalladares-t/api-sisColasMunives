@@ -6,16 +6,18 @@ const router  = Router();
 const apiRoute = Router();
 apiRoute.use(cors()).use(bodyParser.json()).use(compression());
 
-module.exports = function ({PrioridadRoutes,FranjaHorariaRoutes,TipoModuloRoutes}) {
+module.exports = function ({PrioridadRoutes,FranjaHorariaRoutes,TipoModuloRoutes,StdatencionRoutes}) {
     apiRoute.use('/prioridad', PrioridadRoutes);
     apiRoute.use('/franjahoraria', FranjaHorariaRoutes);
     apiRoute.use('/tipomodulo', TipoModuloRoutes);
+    apiRoute.use('/stdatencion', StdatencionRoutes);
     router.get('/api/v1.0',(req,res)=>{
         const {protocol, hostname,url} = req;
         res.json({
             'Prioridad': `${protocol}://${hostname + url}prioridad`,
             'FranjaHoraria':`${protocol}://${hostname + url}franjahoraria`,
-            'TipoModulo':`${protocol}://${hostname + url}tipomodulo`
+            'TipoModulo':`${protocol}://${hostname + url}tipomodulo`,
+            'EstadoAtencion':`${protocol}://${hostname + url}stdatencion`
         })
     });
     router.use('/api/v1.0',apiRoute);
