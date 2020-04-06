@@ -6,12 +6,13 @@ const router  = Router();
 const apiRoute = Router();
 apiRoute.use(cors()).use(bodyParser.json()).use(compression());
 
-module.exports = function ({PrioridadRoutes,FranjaHorariaRoutes,TipoModuloRoutes,StdatencionRoutes,
-                            StdRegistroRoutes}) {
+module.exports = function ({PrioridadRoutes,FranjaHorariaRoutes,TipoModuloRoutes,StdRegistroRoutes,
+                            TiempoGestionRoutes,StdatencionRoutes}) {
     apiRoute.use('/prioridad', PrioridadRoutes);
     apiRoute.use('/franjahoraria', FranjaHorariaRoutes);
     apiRoute.use('/tipomodulo', TipoModuloRoutes);
     apiRoute.use('/stdregistro', StdRegistroRoutes);
+    apiRoute.use('/tiempogestion', TiempoGestionRoutes);
     apiRoute.use('/stdatencion', StdatencionRoutes);
     router.get('/api/v1.0',(req,res)=>{
         const {protocol, hostname,url} = req;
@@ -20,6 +21,7 @@ module.exports = function ({PrioridadRoutes,FranjaHorariaRoutes,TipoModuloRoutes
             'FranjaHoraria':`${protocol}://${hostname + url}franjahoraria`,
             'TipoModulo':`${protocol}://${hostname + url}tipomodulo`,
             'EstadoRegistro':`${protocol}://${hostname + url}stdregistro`,
+            'TiempoGestion':`${protocol}://${hostname + url}tiempogestion`,
             'EstadoAtencion':`${protocol}://${hostname + url}stdatencion`
         })
     });
