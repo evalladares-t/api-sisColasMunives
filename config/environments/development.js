@@ -2,12 +2,12 @@
 module.exports = {
     PORT : process.env.PORT,
     DB : {
-        username: 'postgres',
-        password : 'Desarrollo2020',
-        database : 'siscolasmunives',
-        host : 'localhost',
-        dialect: 'postgres',
-        freezeTableName:true,
+        username: process.env.USER_DV,
+        password : process.env.PASSWORD_DV,
+        database : process.env.DB_DV,
+        host : process.env.HOST_DV,
+        dialect: process.env.DIALECT_DV,
+        freezeTableName:process.env.FREEZETABLANAME_DV,
         logging:false
     }
 };

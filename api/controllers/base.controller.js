@@ -29,7 +29,7 @@ class baseController{
                 let rows = result.rows;
                 const count = result.count;
                 rows = rows.map(rows => mapper(this._DTO,rows));
-                const resultado = Response(count,0,parseInt(limit),protocol,hostname);
+                const resultado = Response(count,0,parseInt(limit),protocol,hostname,this._resource);
                 return res.json({
                     count,
                     previous: resultado.previous,
@@ -44,7 +44,7 @@ class baseController{
                 let rows = result.rows;
                 const count = result.count;
                 rows = rows.map(rows=> mapper(this._DTO,rows));
-                const resultado = Response(count,parseInt(offset),20,protocol,hostname);
+                const resultado = Response(count,parseInt(offset),20,protocol,hostname,this._resource);
                 return res.json({
                     count,
                     previous: resultado.previous,
@@ -56,9 +56,8 @@ class baseController{
                 const result = await this._serviceBase.index('0', '20');
                 let rows = result.rows;
                 const count = result.count;
-                //console.log(this._DTO)
                 rows = rows.map(rows=> mapper(this._DTO,rows));
-                const resultado = Response(count,0,20,protocol,hostname);
+                const resultado = Response(count,0,20,protocol,hostname,this._resource);
                 return res.json({
                     count,
                     previous: resultado.previous,

@@ -7,6 +7,7 @@ application
     .start()
     .then(async () => {
         await db.sequelize.sync();
+        console.log('Base de datos conectada')
     })
     .catch(err => {
         console.log(err);
