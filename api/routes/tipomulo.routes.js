@@ -8,7 +8,7 @@ module.exports = function ({TipoModuloController}) {
     router.get('/:id', TipoModuloController.show.bind(TipoModuloController));
     router.get('/:id', TipoModuloController.show.bind(TipoModuloController));
     router.post('/', TipoModuloController.store.bind(TipoModuloController));
-    router.put('/:id', TipoModuloController.update.bind(TipoModuloController));
+    router.patch('/:id', TipoModuloController.update.bind(TipoModuloController));
     router.delete('/:id', TipoModuloController.destroy.bind(TipoModuloController));
 
     return router;

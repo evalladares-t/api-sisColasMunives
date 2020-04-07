@@ -112,18 +112,18 @@ function Response(count,offset,limit,protocol,hostname,resource){
         if(offset>=0){
             if(offset===0){
                 const previous = null;
-                const next = `${protocol}://${hostname}/api/v1.0/${resource}?offset=${offset+20}&limit=${limit}`;
+                const next = `${protocol}://${hostname}:${process.env.PORT}/api/v1.0/${resource}?offset=${offset+20}&limit=${limit}`;
                 return {previous,next}
             }
             if(offset<20 && offset>0){
-                const previous = `${protocol}://${hostname}/api/v1.0/${resource}?offset=0&limit=${offset}`;
-                const next = `${protocol}://${hostname}/api/v1.0/${resource}?offset=${offset+20}&limit=${limit}`;
+                const previous = `${protocol}://${hostname}:${process.env.PORT}/${process.env.PORT}/api/v1.0/${resource}?offset=0&limit=${offset}`;
+                const next = `${protocol}://${hostname}:${process.env.PORT}/api/v1.0/${resource}?offset=${offset+20}&limit=${limit}`;
                 return {previous,next}
             }
             if(offset>=20){
-                const previous = `${protocol}://${hostname}/api/v1.0/${resource}?offset=${offset-20}&limit=20`;
+                const previous = `${protocol}://${hostname}:${process.env.PORT}/api/v1.0/${resource}?offset=${offset-20}&limit=20`;
                 if(count>offset+20) {
-                    const next = `${protocol}://${hostname}/api/v1.0/${resource}?offset=${offset + 20}&limit=${limit}`;
+                    const next = `${protocol}://${hostname}:${process.env.PORT}/api/v1.0/${resource}?offset=${offset + 20}&limit=${limit}`;
                     return {previous, next}
                 }
                 else {

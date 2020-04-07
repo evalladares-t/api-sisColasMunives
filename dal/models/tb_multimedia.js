@@ -24,7 +24,10 @@ module.exports = (sequelize, DataTypes) => {
     comment: 'TABLA MAESTRO DE LOS ARCHIVOS MULTIMEDIA DEL SISTEMA'
   });
   tb_multimedia.associate = function(models) {
-    // associations can be defined here
+    tb_multimedia.belongsTo(models.tb_usuario,{
+      foreignKey: 'iduser',
+      as:'tb_usuario'
+    });
   };
   return tb_multimedia;
 };

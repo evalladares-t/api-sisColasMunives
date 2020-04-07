@@ -37,6 +37,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tb_tipocasuistica');
+    return queryInterface.dropTable('tb_subcasuistica');
   }
 };

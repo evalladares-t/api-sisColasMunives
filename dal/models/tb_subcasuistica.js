@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const tb_tipocasuistica = sequelize.define('tb_tipocasuistica', {
+  const tb_subcasuistica = sequelize.define('tb_subcasuistica', {
     idscas: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -19,8 +19,11 @@ module.exports = (sequelize, DataTypes) => {
     freezeTableName: true,
     comment: 'TABLA MAESTRO DEL TIPO DE SUB CASUISTICA DEL SISTEMA'
   });
-  tb_tipocasuistica.associate = function(models) {
-    // associations can be defined here
+  tb_subcasuistica.associate = function(models) {
+    tb_subcasuistica.belongsTo(models.tb_prioridad,{
+      foreignKey: 'idpriord',
+      as:'tb_prioridad'
+    });
   };
-  return tb_tipocasuistica;
+  return tb_subcasuistica;
 };

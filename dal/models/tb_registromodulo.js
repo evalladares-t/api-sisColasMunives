@@ -28,7 +28,22 @@ module.exports = (sequelize, DataTypes) => {
     comment: 'TABLA MAESTRO DE LOS REGISTRO DEL MODULO DEL SISTEMA'
   });
   tb_registromodulo.associate = function(models) {
-    // associations can be defined here
+    tb_registromodulo.belongsTo(models.tb_usuario,{
+      foreignKey: 'iduser',
+      as:'tb_usuario'
+    });
+    tb_registromodulo.belongsTo(models.tb_modulo,{
+      foreignKey: 'idmod',
+      as:'tb_modulo'
+    });
+    tb_registromodulo.belongsTo(models.tb_tiempogestion,{
+      foreignKey: 'idtmpgest',
+      as:'tb_tiempogestion'
+    });
+    tb_registromodulo.belongsTo(models.tb_estadoregistro,{
+      foreignKey: 'idstdregis',
+      as:'tb_estadoregistro'
+    });
   };
   return tb_registromodulo;
 };

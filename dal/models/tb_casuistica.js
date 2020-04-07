@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
       comment:'NOMBRE DE LA CASUISTICA'
     },
-    idtipocasuis: {
+    idscas: {
       type:DataTypes.INTEGER,
       comment:'IDENTIFICADOR TABLA TIPO CASUISTICA',
     }
@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
     tb_casuistica.hasMany(models.tb_atencion,{
       foreignKey: 'idcasuis',
       as:'tb_atencion'
+    });
+    tb_casuistica.hasMany(models.tb_subcasuistica,{
+      foreignKey: 'idscas',
+      as:'tb_subcasuistica'
     });
   };
   return tb_casuistica;

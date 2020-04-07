@@ -8,7 +8,7 @@ module.exports = function ({TiempoGestionController}) {
     router.get('/:id', TiempoGestionController.show.bind(TiempoGestionController));
     router.get('/:id', TiempoGestionController.show.bind(TiempoGestionController));
     router.post('/', TiempoGestionController.store.bind(TiempoGestionController));
-    router.put('/:id', TiempoGestionController.update.bind(TiempoGestionController));
+    router.patch('/:id', TiempoGestionController.update.bind(TiempoGestionController));
     router.delete('/:id', TiempoGestionController.destroy.bind(TiempoGestionController));
 
     return router;

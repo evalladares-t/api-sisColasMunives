@@ -24,9 +24,9 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'idpriord',
       as:'tb_ticket'
     });
-    tb_prioridad.hasMany(models.tb_tipocasuistica,{
+    tb_prioridad.hasMany(models.tb_subcasuistica,{
       foreignKey: 'idpriord',
-      as:'tb_tipocasuistica'
+      as:'tb_subcasuistica'
     });
   };
   return tb_prioridad;

@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   tb_tipomodulo.associate = function(models) {
     tb_tipomodulo.hasMany(models.tb_modulo,{
-      foreignKey: 'idtipmod',
+      foreignKey: 'idtmod',
       as:'tb_modulo'
     });
   };

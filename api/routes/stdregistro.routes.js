@@ -8,7 +8,7 @@ module.exports = function ({StdRegistroController}) {
     router.get('/:id', StdRegistroController.show.bind(StdRegistroController));
     router.get('/:id', StdRegistroController.show.bind(StdRegistroController));
     router.post('/', StdRegistroController.store.bind(StdRegistroController));
-    router.put('/:id', StdRegistroController.update.bind(StdRegistroController));
+    router.patch('/:id', StdRegistroController.update.bind(StdRegistroController));
     router.delete('/:id', StdRegistroController.destroy.bind(StdRegistroController));
 
     return router;

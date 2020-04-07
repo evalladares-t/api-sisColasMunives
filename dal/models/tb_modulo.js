@@ -25,8 +25,12 @@ module.exports = (sequelize, DataTypes) => {
   });
   tb_modulo.associate = function(models) {
     tb_modulo.hasMany(models.tb_registromodulo,{
-      foreignKey: 'idmodulo',
+      foreignKey: 'idmod',
       as:'tb_registromodulo'
+    });
+    tb_modulo.belongsTo(models.tb_tipomodulo,{
+      foreignKey: 'idmod',
+      as:'tb_tipomodulo'
     });
   };
   return tb_modulo;

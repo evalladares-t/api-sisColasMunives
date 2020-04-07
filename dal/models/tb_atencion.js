@@ -37,7 +37,22 @@ module.exports = (sequelize, DataTypes) => {
     comment: 'TABLA MAESTRO DE LA ATENCION DEL SISTEMA'
   });
   tb_atencion.associate = function(models) {
-    // associations can be defined here
+    tb_atencion.belongsTo(models.tb_estadoatencion,{
+      foreignKey: 'idstdaten',
+      as:'tb_estadoatencion'
+    });
+    tb_atencion.belongsTo(models.tb_casuistica,{
+      foreignKey: 'idcasuis',
+      as:'tb_casuistica'
+    });
+    tb_atencion.belongsTo(models.tb_ticket,{
+      foreignKey: 'idtick',
+      as:'tb_ticket'
+    });
+    tb_atencion.belongsTo(models.tb_usuario,{
+      foreignKey: 'iduser',
+      as:'tb_usuario'
+    });
   };
   return tb_atencion;
 };

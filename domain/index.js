@@ -4,5 +4,6 @@ module.exports = {
     TipoModuloBusiness : require('./tipomodulo.business'),
     StdRegistroBusiness : require('./stdregistro.business'),
     TiempoGestionBusiness : require('./tiempogestion.business'),
+    ModuloBusiness : require('./modulo.business'),
     StdAtencionBusiness : require('./stdatencion.business')
 };

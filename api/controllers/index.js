@@ -5,5 +5,6 @@ module.exports = {
     TipoModuloController : require('./tipomodulo.controller'),
     StdRegistroController : require('./stdregistro.controller'),
     TiempoGestionController : require('./tiempogestion.controller'),
+    ModuloController : require('./modulo.controller'),
     Stdatencioncontroller : require('./stdatencion.controller')
 };
