@@ -14,10 +14,12 @@ const StdRegistroRoutes = require('./routes/stdregistro.routes');
 const TiempoGestionRoutes = require('./routes/tiempogestion.routes');
 const ModuloRoutes = require('./routes/modulo.routes');
 const StdatencionRoutes = require('./routes/stdatencion.routes');
+const TicketRoutes = require('./routes/ticket.routes');
 
 //controller
 const {PrioridadController,
     Franjahorariacontroller,
+    TicketController,
     TipoModuloController,
     StdRegistroController,
     TiempoGestionController,
@@ -27,6 +29,7 @@ const {PrioridadController,
 //services
 const {PrioridadService,
     FranjaHorariaService,
+    TicketService,
     TipoModuloService,
     StdRegistroService,
     TiempoGestionService,
@@ -36,6 +39,7 @@ const {PrioridadService,
 //business
 const {PrioridadBusiness,
     FranjaHorariaBusiness,
+    TicketBusiness,
     TipoModuloBusiness,
     StdRegistroBusiness,
     TiempoGestionBusiness,
@@ -46,12 +50,12 @@ const {PrioridadBusiness,
 //repositories
 const {PrioridadRepository,
     FranjaHorariaRepository,
+    TicketRepository,
     TipomoduloRepository,
     StdAtencionRepository,
     TiempoGestionRepository,
     ModuloRepository,
     StdRegistroRepository} = require('../dal/repositories');
-
 
 //conf db
 const db = require('../dal/models');
@@ -68,6 +72,7 @@ container
             //Controllers
         PrioridadController : asClass(PrioridadController).singleton(),
         Franjahorariacontroller : asClass(Franjahorariacontroller).singleton(),
+        TicketController : asClass(TicketController).singleton(),
         TipoModuloController : asClass(TipoModuloController).singleton(),
         StdRegistroController : asClass(StdRegistroController).singleton(),
         TiempoGestionController : asClass(TiempoGestionController).singleton(),
@@ -76,6 +81,7 @@ container
             //Routes
         PrioridadRoutes : asFunction(PrioridadRoutes).singleton(),
         FranjaHorariaRoutes : asFunction(FranjaHorariaRoutes).singleton(),
+        TicketRoutes : asFunction(TicketRoutes).singleton(),
         TipoModuloRoutes : asFunction(TipoModuloRoutes).singleton(),
         StdRegistroRoutes : asFunction(StdRegistroRoutes).singleton(),
         TiempoGestionRoutes : asFunction(TiempoGestionRoutes).singleton(),
@@ -92,6 +98,7 @@ container
         //Services
         PrioridadService : asClass(PrioridadService).singleton(),
         FranjaHorariaService : asClass(FranjaHorariaService).singleton(),
+        TicketService : asClass(TicketService).singleton(),
         TipoModuloService : asClass(TipoModuloService).singleton(),
         StdRegistroService : asClass(StdRegistroService).singleton(),
         TiempoGestionService : asClass(TiempoGestionService).singleton(),
@@ -102,6 +109,7 @@ container
         //Business
         PrioridadBusiness: asClass(PrioridadBusiness).singleton(),
         FranjaHorariaBusiness: asClass(FranjaHorariaBusiness).singleton(),
+        TicketBusiness: asClass(TicketBusiness).singleton(),
         TipoModuloBusiness: asClass(TipoModuloBusiness).singleton(),
         StdRegistroBusiness: asClass(StdRegistroBusiness).singleton(),
         TiempoGestionBusiness: asClass(TiempoGestionBusiness).singleton(),
@@ -112,6 +120,7 @@ container
         //Repository
         PrioridadRepository : asClass(PrioridadRepository).singleton(),
         FranjaHorariaRepository : asClass(FranjaHorariaRepository).singleton(),
+        TicketRepository : asClass(TicketRepository).singleton(),
         TipomoduloRepository : asClass(TipomoduloRepository).singleton(),
         StdRegistroRepository : asClass(StdRegistroRepository).singleton(),
         TiempoGestionRepository : asClass(TiempoGestionRepository).singleton(),

@@ -141,7 +141,7 @@ function Response(count,offset,limit,protocol,hostname,resource){
                 return {previous,next}
             }
             if(offset<=20 && offset>0){
-                const previous = `${protocol}://${hostname}/api/v1.0/${resource}?offset=0&limit=${offset}`;
+                const previous = `${protocol}://${hostname}:${process.env.PORT}/api/v1.0/${resource}?offset=0&limit=${offset}`;
                 const next = null;
                 return {previous,next}
             }

@@ -28,6 +28,14 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'idtick',
       as:'tb_atencion'
     });
+    tb_ticket.belongsTo(models.tb_franjahoraria,{
+      foreignKey: 'idfranjhor',
+      as:'tb_franjahoraria'
+    });
+    tb_ticket.belongsTo(models.tb_prioridad,{
+      foreignKey: 'idpriord',
+      as:'tb_prioridad'
+    });
   };
   return tb_ticket;
 };

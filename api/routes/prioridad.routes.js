@@ -9,6 +9,7 @@ module.exports = function ({PrioridadController}) {
     router.post('/', PrioridadController.store.bind(PrioridadController));
     router.patch('/:id', PrioridadController.update.bind(PrioridadController));
     router.delete('/:id', PrioridadController.destroy.bind(PrioridadController));
-
+    router.use('/*', (req,res)=>{
+        res.json({'message':'Recurso no encotrado'})});
     return router;
 };

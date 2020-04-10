@@ -7,7 +7,7 @@ module.exports = {
         database : process.env.DB_DV,
         host : process.env.HOST_DV,
         dialect: process.env.DIALECT_DV,
-        freezeTableName:process.env.FREEZETABLANAME_DV,
+        //freezeTableName:process.env.FREEZETABLANAME_DV,
         logging:false
     }
 };
