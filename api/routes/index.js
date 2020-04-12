@@ -6,12 +6,13 @@ const router  = Router();
 const apiRoute = Router();
 apiRoute.use(cors()).use(bodyParser.json()).use(compression());
 
-module.exports = function ({PrioridadRoutes,FranjaHorariaRoutes,TicketRoutes,TipoModuloRoutes,StdRegistroRoutes,
+module.exports = function ({PrioridadRoutes,FranjaHorariaRoutes,TicketRoutes,SubcasuisticaRoutes,TipoModuloRoutes,StdRegistroRoutes,
                             TiempoGestionRoutes,ModuloRoutes,
                                StdatencionRoutes}) {
     apiRoute.use('/prioridad', PrioridadRoutes);
     apiRoute.use('/franjahoraria', FranjaHorariaRoutes);
     apiRoute.use('/ticket', TicketRoutes);
+    apiRoute.use('/subcasuistica', SubcasuisticaRoutes);
     apiRoute.use('/tipomodulo', TipoModuloRoutes);
     apiRoute.use('/stdregistro', StdRegistroRoutes);
     apiRoute.use('/tiempogestion', TiempoGestionRoutes);
@@ -25,6 +26,7 @@ module.exports = function ({PrioridadRoutes,FranjaHorariaRoutes,TicketRoutes,Tip
             'Prioridad': `${protocol}://${hostname}:${process.env.PORT}${url}/prioridad`,
             'FranjaHoraria':`${protocol}://${hostname}:${process.env.PORT}${url}/franjahoraria`,
             'Ticket':`${protocol}://${hostname}:${process.env.PORT}${url}/ticket`,
+            'Subcasuistica':`${protocol}://${hostname}:${process.env.PORT}${url}/subcasuistica`,
             'TipoModulo':`${protocol}://${hostname}:${process.env.PORT}${url}/tipomodulo`,
             'EstadoRegistro':`${protocol}://${hostname}:${process.env.PORT}${url}/stdregistro`,
             'TiempoGestion':`${protocol}://${hostname}:${process.env.PORT}${url}/tiempogestion`,

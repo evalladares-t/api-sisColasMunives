@@ -24,10 +24,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'idcasuis',
       as:'tb_atencion'
     });
-    tb_casuistica.hasMany(models.tb_subcasuistica,{
+    tb_casuistica.belongsTo(models.tb_subcasuistica,{
       foreignKey: 'idscas',
       as:'tb_subcasuistica'
     });
+
   };
   return tb_casuistica;
 };
