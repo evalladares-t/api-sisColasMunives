@@ -1,4 +1,8 @@
 module.exports = {
+    UsuarioDTO : require('./usuario.dto'),
+    MultimediaDTO : require('./multimedia.dto'),
+    RegistroModuloDTO : require('./registromodulo.dto'),
+    AtencionDTO : require('./atencion.dto'),
     PrioridadDTO : require('./prioridad.dto'),
     FranjahorariaDto : require('./franjahoraria.dto'),
     TicketDTO : require('./ticket.dto'),

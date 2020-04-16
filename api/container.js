@@ -17,9 +17,11 @@ const StdatencionRoutes = require('./routes/stdatencion.routes');
 const TicketRoutes = require('./routes/ticket.routes');
 const SubcasuisticaRoutes = require('./routes/subcasuistica.routes');
 const CasuisticaRoutes = require('./routes/casuistica.routes');
+const UsuarioRoutes = require('./routes/usuario.routes');
 
 //controller
-const {PrioridadController,
+const {UsuarioController,
+    PrioridadController,
     Franjahorariacontroller,
     TicketController,
     CasuisticaController,
@@ -31,7 +33,8 @@ const {PrioridadController,
     Stdatencioncontroller} = require('./controllers');
 
 //services
-const {PrioridadService,
+const {UsuarioService,
+    PrioridadService,
     FranjaHorariaService,
     TicketService,
     CasuisticaService,
@@ -43,7 +46,8 @@ const {PrioridadService,
     StdAtencionService,} = require('../services');
 
 //business
-const {PrioridadBusiness,
+const {UsuarioBusiness,
+    PrioridadBusiness,
     FranjaHorariaBusiness,
     TicketBusiness,
     CasuisticaBusiness,
@@ -56,7 +60,8 @@ const {PrioridadBusiness,
 
 
 //repositories
-const {PrioridadRepository,
+const {UsuarioRepository,
+    PrioridadRepository,
     FranjaHorariaRepository,
     TicketRepository,
     CasuisticaRepository,
@@ -80,6 +85,7 @@ container
         router : asFunction(Routes).singleton(),
         //Api Action
             //Controllers
+        UsuarioController : asClass(UsuarioController).singleton(),
         PrioridadController : asClass(PrioridadController).singleton(),
         Franjahorariacontroller : asClass(Franjahorariacontroller).singleton(),
         TicketController : asClass(TicketController).singleton(),
@@ -91,6 +97,7 @@ container
         Stdatencioncontroller : asClass(Stdatencioncontroller).singleton(),
         CasuisticaController : asClass(CasuisticaController).singleton(),
             //Routes
+        UsuarioRoutes : asFunction(UsuarioRoutes).singleton(),
         PrioridadRoutes : asFunction(PrioridadRoutes).singleton(),
         FranjaHorariaRoutes : asFunction(FranjaHorariaRoutes).singleton(),
         TicketRoutes : asFunction(TicketRoutes).singleton(),
@@ -110,6 +117,7 @@ container
     })
     .register({
         //Services
+        UsuarioService : asClass(UsuarioService).singleton(),
         PrioridadService : asClass(PrioridadService).singleton(),
         FranjaHorariaService : asClass(FranjaHorariaService).singleton(),
         TicketService : asClass(TicketService).singleton(),
@@ -123,6 +131,7 @@ container
     })
     .register({
         //Business
+        UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
         PrioridadBusiness: asClass(PrioridadBusiness).singleton(),
         FranjaHorariaBusiness: asClass(FranjaHorariaBusiness).singleton(),
         TicketBusiness: asClass(TicketBusiness).singleton(),
@@ -136,6 +145,7 @@ container
     })
     .register({
         //Repository
+        UsuarioRepository : asClass(UsuarioRepository).singleton(),
         PrioridadRepository : asClass(PrioridadRepository).singleton(),
         FranjaHorariaRepository : asClass(FranjaHorariaRepository).singleton(),
         TicketRepository : asClass(TicketRepository).singleton(),

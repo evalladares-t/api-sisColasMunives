@@ -1,5 +1,6 @@
 
 module.exports = {
+    Usuario: require("./usuario.models"),
     Prioridad: require("./prioridad.models"),
     FranjaHoraria : require('./franjahoraria.models'),
     Ticket : require('./ticket.models'),

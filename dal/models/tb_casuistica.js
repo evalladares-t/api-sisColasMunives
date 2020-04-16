@@ -28,7 +28,6 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'idscas',
       as:'tb_subcasuistica'
     });
-
   };
   return tb_casuistica;
 };

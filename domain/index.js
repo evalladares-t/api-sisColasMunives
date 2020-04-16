@@ -1,4 +1,5 @@
 module.exports = {
+    UsuarioBusiness: require("./usuario.business"),
     PrioridadBusiness: require("./prioridad.business"),
     FranjaHorariaBusiness : require('./franjahoraria.business'),
     TicketBusiness : require('./ticket.business'),

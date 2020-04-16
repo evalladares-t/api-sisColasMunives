@@ -1,5 +1,6 @@
 
 module.exports = {
+    UsuarioController : require('./usuario.controller'),
     PrioridadController : require('./prioridad.controller'),
     Franjahorariacontroller : require('./franjahoraria.controller'),
     TicketController : require('./ticket.controller'),
