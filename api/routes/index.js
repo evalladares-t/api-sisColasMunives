@@ -6,10 +6,11 @@ const router  = Router();
 const apiRoute = Router();
 apiRoute.use(cors()).use(bodyParser.json()).use(compression());
 
-module.exports = function ({UsuarioRoutes,PrioridadRoutes,FranjaHorariaRoutes,TicketRoutes,SubcasuisticaRoutes,CasuisticaRoutes,TipoModuloRoutes,StdRegistroRoutes,
+module.exports = function ({UsuarioRoutes,MultimediaRoutes,PrioridadRoutes,FranjaHorariaRoutes,TicketRoutes,SubcasuisticaRoutes,CasuisticaRoutes,TipoModuloRoutes,StdRegistroRoutes,
                             TiempoGestionRoutes,ModuloRoutes,
                                StdatencionRoutes}) {
     apiRoute.use('/usuario', UsuarioRoutes);
+    apiRoute.use('/multimedia', MultimediaRoutes);
     apiRoute.use('/prioridad', PrioridadRoutes);
     apiRoute.use('/franjahoraria', FranjaHorariaRoutes);
     apiRoute.use('/ticket', TicketRoutes);
@@ -26,6 +27,7 @@ module.exports = function ({UsuarioRoutes,PrioridadRoutes,FranjaHorariaRoutes,Ti
         const {protocol, hostname,url} = req;
         res.json({
             'Usuario': `${protocol}://${hostname}:${process.env.PORT}${url}/usuario`,
+            'Multimedia': `${protocol}://${hostname}:${process.env.PORT}${url}/multimedia`,
             'Prioridad': `${protocol}://${hostname}:${process.env.PORT}${url}/prioridad`,
             'FranjaHoraria':`${protocol}://${hostname}:${process.env.PORT}${url}/franjahoraria`,
             'Ticket':`${protocol}://${hostname}:${process.env.PORT}${url}/ticket`,

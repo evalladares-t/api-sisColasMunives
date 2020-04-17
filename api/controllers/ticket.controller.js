@@ -12,6 +12,9 @@ class TicketController extends BaseController{
         const {id} = req.params;
         let result = await this._serviceBase.showdep(id);
         const ticket = mapper(this._DTO,result.ticket);
+        if(!result){
+            res.json({'message':'Recurso no encotrado'})
+        }
         const prioridad = mapper(PrioridadDTO,result.prioridad);
         const franjahoraria = mapper(FranjahorariaDto,result.franjahoraria);
         return res.json({

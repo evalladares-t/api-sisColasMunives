@@ -9,6 +9,7 @@ module.exports = function ({CasuisticaController}) {
     router.post('/', CasuisticaController.store.bind(CasuisticaController));
     router.patch('/:id', CasuisticaController.update.bind(CasuisticaController));
     router.delete('/:id', CasuisticaController.destroy.bind(CasuisticaController));
-
+    router.use('/*', (req,res)=>{
+        res.json({'message':'Recurso no encotrado'})});
     return router;
 };

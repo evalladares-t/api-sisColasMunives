@@ -1,6 +1,6 @@
 const mapper = require("automapper-js");
 const BaseBusiness = require("./base.business");
-const { Usuario,Multimedia } = require("./models");
+const { Usuario,Multimedia,Atencion,RegistroModulo } = require("./models");
 
 class UsuarioBusiness extends BaseBusiness {
     constructor({ UsuarioRepository }) {
@@ -10,12 +10,19 @@ class UsuarioBusiness extends BaseBusiness {
     async showdep(id) {
         const entity = await this._entityRepository.show(id);
         if (!entity) return null;
-
         const usuario = mapper(this.entityToMap, entity.toJSON());
-
-        const multimedia = (!entity.tb_multimedia)?mapper(Multimedia, entity.tb_multimedia.toJSON()):null;
-        const atencion = (!entity.tb_atencion)?mapper(TipoModulo, entity.tb_atencion.toJSON()):null;
-        const registromodulo = (!entity.tb_registromodulo)?mapper(TipoModulo, entity.tb_registromodulo.toJSON()):null;
+        let multimedia = null;
+        let atencion = null;
+        let registromodulo = null;
+        if(entity.tb_multimedia){
+            multimedia = mapper(Multimedia, entity.tb_multimedia);
+        }
+        if(entity.tb_atencion){
+            atencion = mapper(Atencion, entity.tb_atencion);
+        }
+        if(entity.tb_registromodulo){
+            registromodulo = mapper(RegistroModulo, entity.tb_registromodulo);
+        }
         return {usuario,multimedia,atencion,registromodulo}
     }
 }

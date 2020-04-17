@@ -10,6 +10,7 @@ module.exports = function ({Franjahorariacontroller}) {
     router.post('/', Franjahorariacontroller.store.bind(Franjahorariacontroller));
     router.patch('/:id', Franjahorariacontroller.update.bind(Franjahorariacontroller));
     router.delete('/:id', Franjahorariacontroller.destroy.bind(Franjahorariacontroller));
-
+    router.use('/*', (req,res)=>{
+        res.json({'message':'Recurso no encotrado'})});
     return router;
 };

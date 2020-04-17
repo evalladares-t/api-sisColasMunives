@@ -1,5 +1,6 @@
 module.exports = {
     UsuarioService : require('./usuario.service'),
+    MultimediaService : require('./multimedia.service'),
     PrioridadService : require('./prioridad.service'),
     FranjaHorariaService : require('./franjahoraria.service'),
     TicketService : require('./ticket.service'),

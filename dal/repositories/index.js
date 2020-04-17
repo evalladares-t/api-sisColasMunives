@@ -1,5 +1,6 @@
 module.exports = {
     UsuarioRepository: require("./usuario.repository"),
+    MultimediaRepository: require("./multimedia.repository"),
     PrioridadRepository: require("./prioridad.repository"),
     FranjaHorariaRepository: require("./franjahoraria.repository"),
     TicketRepository: require("./ticket.repository"),

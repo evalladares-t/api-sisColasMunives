@@ -10,6 +10,9 @@ class SubcasuiticaController extends BaseController{
     async showdep(req,res){
         const {id} = req.params;
         let result = await this._serviceBase.showdep(id);
+        if(!result){
+            res.json({'message':'Recurso no encotrado'})
+        }
         const subcasuistica = mapper(this._DTO,result.subcasuistica);
         const prioridad = mapper(PrioridadDTO,result.prioridad);
         return res.json({

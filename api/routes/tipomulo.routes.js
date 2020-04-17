@@ -10,6 +10,7 @@ module.exports = function ({TipoModuloController}) {
     router.post('/', TipoModuloController.store.bind(TipoModuloController));
     router.patch('/:id', TipoModuloController.update.bind(TipoModuloController));
     router.delete('/:id', TipoModuloController.destroy.bind(TipoModuloController));
-
+    router.use('/*', (req,res)=>{
+        res.json({'message':'Recurso no encotrado'})});
     return router;
 };

@@ -9,6 +9,7 @@ module.exports = function ({UsuarioController}) {
     router.post('/', UsuarioController.store.bind(UsuarioController));
     router.patch('/:id', UsuarioController.update.bind(UsuarioController));
     router.delete('/:id', UsuarioController.destroy.bind(UsuarioController));
-
+    router.use('/*', (req,res)=>{
+        res.json({'message':'Recurso no encotrado'})});
     return router;
 };
